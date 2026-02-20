@@ -1,55 +1,105 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
+import DonateButton from "../components/DonateButton";
+import PageHero from "../components/PageHero";
+import photos from "../data/photos.json";
+import programData from "../data/programData.json";
 
-import React, { useEffect } from "react";
-import ProgramAreas from "../components/ProgramAreas";
-import Navbar from "../components/NavBar";
-import CtaBox from "../components/CtaBox";
-import ImageGrid from "../components/ImageGrid";
-import Testimonial from "../components/Testimonial";
-import { motion } from "framer-motion";
+const deliveryModel = [
+	{
+		title: "Assess",
+		copy: "Evaluate local constraints and participant readiness before intervention.",
+	},
+	{
+		title: "Equip",
+		copy: "Provide funding, tools, and learning support suited to each pathway.",
+	},
+	{
+		title: "Coach",
+		copy: "Maintain regular mentor touchpoints for accountability and adaptation.",
+	},
+	{
+		title: "Scale",
+		copy: "Help participants transition from early wins into sustained growth.",
+	},
+];
 
-function Initiative() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+export default function Initiative() {
 	return (
-		<>
-			<motion.div
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ duration: 1.5 }}
-			>
-				<Navbar />
-				<div className="team-header">
-					<img
-						src="https://inclusionafrika.imgix.net/community.jpg"
-						alt="medium-shot-happy-african-people"
-						className="img-fluid"
-					/>
-					<div className="overlay">
-						<h1 className="text">Our Initiatives</h1>
-					</div>
+		<div className="page">
+			<PageHero
+				eyebrow="Program Initiatives"
+				title="Integrated interventions that move young adults from potential to progress."
+				description="Our initiatives combine finance, education, and mentorship so participants can build stable livelihoods and long-term capacity."
+				image="https://inclusionafrika.imgix.net/photo/2.jpg"
+				actions={
+					<>
+						<DonateButton label="Fuel an Initiative" />
+						<Link href="/getinvolved" className="btn btn--light">
+							Partner With Us
+						</Link>
+					</>
+				}
+			/>
+
+			<section className="section">
+				<div className="section-heading">
+					<p className="eyebrow">Current Program Areas</p>
+					<h2>Three connected pathways for durable economic and social outcomes.</h2>
 				</div>
-				<section className="container top">
-					<motion.div
-						className="text d-flex"
-						initial={{ opacity: 0, y: 100 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1.5, delay: 0.4 }}
-					>
-						<div className="title d-flex"></div>
-						<p className="fs-5">
-							Our initiatives make differences in the lives of African youth. We have over a diverse range of solutions to African challenges.
-						</p>
-					</motion.div>
-				</section>
-				<ProgramAreas />
-				<CtaBox />
-				<ImageGrid />
-				<Testimonial />
-			</motion.div>
-		</>
+				<div className="program-grid">
+					{programData.map((program) => (
+						<article key={program.title} className="program-card-modern">
+							<div className="program-card-modern__media">
+								<Image
+									src={program.imgSrc}
+									alt={program.title}
+									fill
+									sizes="(max-width: 900px) 100vw, 42vw"
+								/>
+							</div>
+							<div className="program-card-modern__content">
+								<h3>{program.title}</h3>
+								<p>{program.description}</p>
+							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section className="section">
+				<div className="section-heading">
+					<p className="eyebrow">Delivery Framework</p>
+					<h2>Built to stay responsive while keeping execution disciplined.</h2>
+				</div>
+				<div className="card-grid card-grid--four">
+					{deliveryModel.map((item) => (
+						<article className="info-card" key={item.title}>
+							<h3>{item.title}</h3>
+							<p>{item.copy}</p>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section className="section">
+				<div className="section-heading">
+					<p className="eyebrow">Field Gallery</p>
+					<h2>Snapshots from communities, teams, and program activity.</h2>
+				</div>
+				<div className="photo-grid">
+					{photos.slice(0, 8).map((photo) => (
+						<div key={photo.src} className="photo-grid__item">
+							<Image
+								src={photo.src}
+								alt={photo.caption}
+								fill
+								sizes="(max-width: 900px) 50vw, 25vw"
+							/>
+						</div>
+					))}
+				</div>
+			</section>
+		</div>
 	);
 }
-
-export default Initiative;

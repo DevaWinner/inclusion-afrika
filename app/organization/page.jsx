@@ -1,11 +1,5 @@
-import Organization from "../../src/views/OurOrganization";
-import Footer from "../../src/components/Footer";
+import OurOrganization from "../../src/views/OurOrganization";
 
 export default function Page() {
-	return (
-		<>
-			<Organization />
-			<Footer />
-		</>
-	);
+	return <OurOrganization />;
 }

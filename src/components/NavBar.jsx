@@ -1,142 +1,77 @@
 "use client";
 
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import DonateButton from "./DonateButton";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import DonateButton from "./DonateButton";
 
-const NavBar = () => {
-	const [scrolled, setScrolled] = useState(false);
+const NAV_LINKS = [
+	{ href: "/", label: "Home" },
+	{ href: "/organization", label: "Organization" },
+	{ href: "/team", label: "Team" },
+	{ href: "/initiative", label: "Initiatives" },
+	{ href: "/getinvolved", label: "Get Involved" },
+];
+
+export default function NavBar() {
 	const pathname = usePathname();
-
-	const navLinkClassName = (href) =>
-		`nav-link${pathname === href ? " active" : ""}`;
-
-	const closeNavbar = () => {
-		const navbarToggler = document.querySelector(".navbar-toggler");
-		if (navbarToggler && window.innerWidth < 992) {
-			navbarToggler.click();
-		}
-	};
+	const [menuOpen, setMenuOpen] = useState(false);
 
 	useEffect(() => {
-		const handleScroll = () => {
-			const isScrolled = window.scrollY > 0;
-			setScrolled(isScrolled);
-		};
-
-		window.addEventListener("scroll", handleScroll);
-
-		return () => {
-			window.removeEventListener("scroll", handleScroll);
-		};
-	}, []);
+		setMenuOpen(false);
+	}, [pathname]);
 
 	return (
-		<>
-			{["lg"].map((expand) => (
-				<Navbar
-					key={expand}
-					expand={expand}
-					className={`bg-white header ${scrolled ? "scrolled" : ""}`}
-					style={{ zIndex: 1001 }}
-					sticky="top"
-				>
-					<Container className="header">
-						<Navbar.Brand className="logo">
-							<Link href="/">
-								<img
-									src="https://inclusionafrika.imgix.net/logo.jpg"
-									className="img-fluid"
-									alt="Inclusion Afrika Logo"
-								/>
-							</Link>
-						</Navbar.Brand>
-						<div className="mobile-screen">
-							<DonateButton />
-						</div>
-						<Navbar.Toggle
-							aria-controls={`offcanvasNavbar-expand-${expand}`}
-							className="shadow-none border-0"
-						/>
-						<Navbar.Offcanvas
-							id={`offcanvasNavbar-expand-${expand}`}
-							aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
-							placement="end"
-							style={{
-								backgroundColor: "var(--primary-color)",
-								top: "65px",
-								width: "80%",
-								height: "80%",
-								backdropFilter: "blur(20px)",
-								color: "antiquewhite",
-								borderRadius: "0 0 0 20px",
-								border: "none",
-							}}
-						>
-							<Offcanvas.Body>
-								<Nav className="justify-content-center flex-grow-1 mobile">
-									<Link
-										href="/"
-										className={navLinkClassName("/")}
-										onClick={closeNavbar}
-									>
-										Home
-									</Link>
-									<NavDropdown
-										title="About Us"
-										id="basic-nav-dropdown"
-										className="nav-link"
-									>
-										<NavDropdown.Item
-											as={Link}
-											href="/organization"
-											className={
-												pathname === "/organization" ? "active" : ""
-											}
-											onClick={closeNavbar}
-										>
-											Our Organization
-										</NavDropdown.Item>
-										<NavDropdown.Item
-											as={Link}
-											href="/team"
-											className={pathname === "/team" ? "active" : ""}
-											onClick={closeNavbar}
-										>
-											Our Team
-										</NavDropdown.Item>
-									</NavDropdown>
-									<Link
-										href="/initiative"
-										className={navLinkClassName("/initiative")}
-										onClick={closeNavbar}
-									>
-										Initiatives
-									</Link>
-									<Link
-										href="/getinvolved"
-										className={navLinkClassName("/getinvolved")}
-										onClick={closeNavbar}
-									>
-										Get Involved
-									</Link>
-								</Nav>
-								<div className="donate">
-									<DonateButton />
-								</div>
-							</Offcanvas.Body>
-						</Navbar.Offcanvas>
-					</Container>
-				</Navbar>
-			))}
-		</>
-	);
-};
+		<header className="site-header">
+			<div className="header-shell">
+				<Link href="/" className="brand" aria-label="Inclusion Afrika home">
+					<Image
+						src="https://inclusionafrika.imgix.net/logo.jpg"
+						alt="Inclusion Afrika"
+						width={176}
+						height={60}
+						priority
+					/>
+				</Link>
 
-export default NavBar;
+				<button
+					type="button"
+					className={`header-toggle ${menuOpen ? "is-open" : ""}`}
+					onClick={() => setMenuOpen((current) => !current)}
+					aria-expanded={menuOpen}
+					aria-controls="site-navigation"
+					aria-label="Toggle navigation"
+				>
+					<span />
+					<span />
+				</button>
+
+				<nav
+					id="site-navigation"
+					className={`header-nav ${menuOpen ? "is-open" : ""}`}
+				>
+					<ul className="header-nav-list">
+						{NAV_LINKS.map((link) => {
+							const isActive = pathname === link.href;
+
+							return (
+								<li key={link.href}>
+									<Link
+										href={link.href}
+										className={`header-link ${isActive ? "is-active" : ""}`}
+									>
+										{link.label}
+									</Link>
+								</li>
+							);
+						})}
+					</ul>
+					<div className="header-actions">
+						<DonateButton label="Donate" />
+					</div>
+				</nav>
+			</div>
+		</header>
+	);
+}

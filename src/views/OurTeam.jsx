@@ -1,85 +1,111 @@
-"use client";
-
-import React, { useEffect } from "react";
-import Navbar from "../components/NavBar";
-import ProfileSection from "../components/ProfileSection";
+import Image from "next/image";
+import Link from "next/link";
+import DonateButton from "../components/DonateButton";
+import PageHero from "../components/PageHero";
 import boardMembersData from "../data/boardMembersData.json";
 import foundersData from "../data/foundersData.json";
 import techTeamData from "../data/techTeamData.json";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 
-const OurTeam = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  
-	const { ref: headerRef, inView: headerInView } = useInView({
-		triggerOnce: true,
-	});
+const profileGroups = [
+	{
+		title: "Founders",
+		description:
+			"Vision builders who established Inclusion Afrika with a focus on self-reliance and ethical leadership.",
+		profiles: foundersData,
+	},
+	{
+		title: "Board Members",
+		description:
+			"Senior advisors providing governance, strategic direction, and cross-industry experience.",
+		profiles: boardMembersData,
+	},
+	{
+		title: "Tech and Advisory Team",
+		description:
+			"Specialists strengthening our execution in digital systems, education technology, and legal operations.",
+		profiles: techTeamData,
+	},
+];
 
-	const { ref: textRef, inView: textInView } = useInView({
-		triggerOnce: true,
-	});
+function shortenBio(bio) {
+	if (bio.length <= 220) {
+		return bio;
+	}
 
+	return `${bio.slice(0, 220).trim()}...`;
+}
+
+export default function OurTeam() {
 	return (
-		<>
-			<motion.div
-				initial={{ opacity: 0 }}
-				animate={{ opacity: 1 }}
-				transition={{ duration: 1 }}
-			>
-				<Navbar />
-				<div className="team-header" ref={headerRef}>
-					<img
-						src="https://inclusionafrika.imgix.net/happy-people.jpg"
-						alt="medium-shot-happy-african-people"
-						className="img-fluid"
-					/>
-					<div className="overlay">
-						<h1 className="text">Meet the Team</h1>
+		<div className="page">
+			<PageHero
+				eyebrow="Leadership"
+				title="A multidisciplinary team committed to practical impact."
+				description="Our people combine nonprofit, business, technology, and educational expertise to support youth across Africa."
+				image="https://inclusionafrika.imgix.net/happy-people.jpg"
+				actions={
+					<>
+						<DonateButton label="Support the Team's Work" />
+						<Link href="/getinvolved" className="btn btn--light">
+							Join as a Mentor
+						</Link>
+					</>
+				}
+			/>
+
+			{profileGroups.map((group) => (
+				<section className="section" key={group.title}>
+					<div className="section-heading">
+						<p className="eyebrow">{group.title}</p>
+						<h2>{group.description}</h2>
+					</div>
+					<div className="profile-grid">
+						{group.profiles.map((profile) => (
+							<article className="profile-card" key={profile.name}>
+								<div className="profile-card__media">
+									<Image
+										src={profile.image}
+										alt={profile.name}
+										fill
+										sizes="(max-width: 900px) 100vw, 25vw"
+									/>
+								</div>
+								<div className="profile-card__body">
+									<p className="profile-role">{profile.intro}</p>
+									<h3>{profile.name}</h3>
+									<p>{shortenBio(profile.bio)}</p>
+									{profile.linkedin ? (
+										<a
+											href={profile.linkedin}
+											target="_blank"
+											rel="noreferrer"
+											className="text-link"
+										>
+											View LinkedIn
+										</a>
+									) : null}
+								</div>
+							</article>
+						))}
+					</div>
+				</section>
+			))}
+
+			<section className="section">
+				<div className="join-panel">
+					<h2>Interested in contributing your expertise?</h2>
+					<p>
+						We welcome practitioners, mentors, and strategic partners who can help
+						accelerate opportunity for young adults across Africa.
+					</p>
+					<div className="inline-actions">
+						<Link href="/getinvolved" className="btn btn--primary">
+							Start Here
+						</Link>
+						<DonateButton label="Contribute Financially" className="btn--outline" />
 					</div>
 				</div>
-				<section className="container top">
-					<motion.div
-						className="text d-flex"
-						initial={{ opacity: 0, y: 100 }}
-						animate={{ opacity: 1, y: 0 }}
-						transition={{ duration: 1, delay: 0.5 }}
-						ref={textRef}
-					>
-						<div className="title d-flex"></div>
-						<p>
-							Our team is made up of a diverse group of people and experiences.
-							We are united by our passion for helping others and our desire to
-							make a difference in the world.
-						</p>
-					</motion.div>
-					<div className="text d-flex">
-						<div className="title d-flex">
-							<h2>Founders</h2>
-							<hr />
-						</div>
-					</div>
-					<ProfileSection profiles={foundersData} type="Founder" />
-					<div className="text d-flex">
-						<div className="title d-flex">
-							<h2>Board Members</h2>
-							<hr />
-						</div>
-					</div>
-					<ProfileSection profiles={boardMembersData} type="Board" />
-					<div className="text d-flex">
-						<div className="title d-flex">
-							<h2>Tech Team</h2>
-							<hr />
-						</div>
-					</div>
-					<ProfileSection profiles={techTeamData} type="Tech" />
-				</section>
-			</motion.div>
-		</>
+			</section>
+		</div>
 	);
-};
-
-export default OurTeam;
+}

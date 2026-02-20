@@ -1,42 +1,33 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "../src/index.css";
-import "../src/App.css";
-import "../src/styles/AboutHero.css";
-import "../src/styles/AboutStory.css";
-import "../src/styles/Carousel.css";
-import "../src/styles/ContactForm.css";
-import "../src/styles/CtaBox.css";
-import "../src/styles/DonateButton.css";
-import "../src/styles/Footer.css";
-import "../src/styles/Home.css";
-import "../src/styles/ImpactContainer.css";
-import "../src/styles/NavBar.css";
-import "../src/styles/OtherWaysToSupport.css";
-import "../src/styles/OurTeam.css";
-import "../src/styles/PartnerSection.css";
-import "../src/styles/ProgramAreas.css";
-import "../src/styles/Reach.css";
-import "../src/styles/Testimonial.css";
-import "../src/styles/VideoComponent.css";
-import "../src/styles/WhatWeDo.css";
-import "../src/styles/WhoWeAreSection.css";
-import Script from "next/script";
+import "../src/styles/globals.css";
+import NavBar from "../src/components/NavBar";
+import Footer from "../src/components/Footer";
 
 export const metadata = {
-	title: "Inclusion Afrika - Empowering African Youth",
+	title: {
+		default: "Inclusion Afrika",
+		template: "%s | Inclusion Afrika",
+	},
 	description:
-		"Empowering African youth for a brighter future. Join Inclusion Afrika in breaking barriers through micro-loans, education, and opportunities.",
-	keywords: [
-		"Empowerment",
-		"African youth",
-		"Micro-loans",
-		"Education opportunities",
-		"Poverty alleviation",
-		"Self-reliance",
-		"Community development",
-	],
+		"Inclusion Afrika equips African youth with access to micro-loans, mentorship, education, and global partnerships.",
+	metadataBase: new URL("https://inclusionafrika.org"),
 	icons: {
 		icon: "https://inclusionafrika.imgix.net/meta.jpg",
+	},
+	openGraph: {
+		title: "Inclusion Afrika",
+		description:
+			"Catalyzing opportunity for young adults across Africa through funding, coaching, and long-term support.",
+		url: "https://inclusionafrika.org",
+		siteName: "Inclusion Afrika",
+		images: [
+			{
+				url: "https://inclusionafrika.imgix.net/meta.jpg",
+				width: 1200,
+				height: 630,
+			},
+		],
+		locale: "en_US",
+		type: "website",
 	},
 };
 
@@ -51,17 +42,15 @@ export default function RootLayout({ children }) {
 					crossOrigin="anonymous"
 				/>
 				<link
-					href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap"
+					href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap"
 					rel="stylesheet"
 				/>
 			</head>
 			<body>
-				{children}
-				<Script
-					src="https://kit.fontawesome.com/8d20eebc7a.js"
-					crossOrigin="anonymous"
-					strategy="afterInteractive"
-				/>
+				<div className="site-backdrop" aria-hidden="true" />
+				<NavBar />
+				<main className="site-main">{children}</main>
+				<Footer />
 			</body>
 		</html>
 	);

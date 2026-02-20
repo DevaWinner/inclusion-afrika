@@ -1,11 +1,5 @@
-import Team from "../../src/views/OurTeam";
-import Footer from "../../src/components/Footer";
+import OurTeam from "../../src/views/OurTeam";
 
 export default function Page() {
-	return (
-		<>
-			<Team />
-			<Footer />
-		</>
-	);
+	return <OurTeam />;
 }
