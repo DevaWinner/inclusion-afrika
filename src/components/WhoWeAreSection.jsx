@@ -2,7 +2,6 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import "../styles/WhoWeAreSection.css";
 
 const WhoWeAreSection = () => {
 	const { ref: parentRef, inView: parentInView } = useInView({

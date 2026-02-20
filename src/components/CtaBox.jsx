@@ -1,8 +1,7 @@
 import DonateButton from "./DonateButton";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import "../styles/CtaBox.css";
 
 const CtaBox = () => {
 	const { ref, inView } = useInView({
@@ -78,7 +77,7 @@ const CtaBox = () => {
 					<motion.div>
 						<DonateButton />
 					</motion.div>
-					<Link to="/getinvolved">
+					<Link href="/getinvolved">
 						<motion.button className="mentor-btn">Get involved</motion.button>
 					</Link>
 				</motion.div>

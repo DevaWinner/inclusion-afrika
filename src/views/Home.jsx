@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import Navbar from "../components/NavBar";
 import HeroCarousel from "../components/Carousel";
@@ -7,7 +9,6 @@ import WhatWeDo from "../components/WhatWeDo";
 import CtaBox from "../components/CtaBox";
 import ContactForm from "../components/ContactForm";
 import PartnerSection from "../components/PartnerSection";
-import "../styles/Home.css";
 import { motion } from "framer-motion";
 
 function Home() {

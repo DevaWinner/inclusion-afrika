@@ -1,7 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import ProgramCard from "./ProgramCard";
 import programData from "../data/programData.json";
-import "../styles/ProgramAreas.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 

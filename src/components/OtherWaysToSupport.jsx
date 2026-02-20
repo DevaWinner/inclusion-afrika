@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Form, Alert } from "react-bootstrap";
 import axios from "axios";
-import "../styles/ContactForm.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 

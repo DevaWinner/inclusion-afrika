@@ -1,6 +1,5 @@
 import TestimonialCard from "./TestimonialCard";
 import testimonials from "../data/testimonials.json";
-import "../styles/Testimonial.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 

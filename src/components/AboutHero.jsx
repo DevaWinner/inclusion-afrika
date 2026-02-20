@@ -1,6 +1,5 @@
 import { Container } from "react-bootstrap";
 import { motion } from "framer-motion";
-import "../styles/AboutHero.css";
 
 const AboutHero = () => {
 	return (

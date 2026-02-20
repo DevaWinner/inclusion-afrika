@@ -1,4 +1,3 @@
-import "../styles/PartnerSection.css";
 import partnerLogo from "../data/partnerLogo.json";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { motion } from "framer-motion";

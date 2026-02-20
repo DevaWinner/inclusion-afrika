@@ -1,18 +1,18 @@
 {
-	"name": "Inclusion Afrika",
+	"name": "inclusion-afrika",
 	"private": true,
-	"version": "0.0.0",
-	"type": "module",
+	"version": "1.0.0",
 	"scripts": {
-		"dev": "vite --host",
-		"build": "vite build",
-		"lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-		"preview": "vite preview"
+		"dev": "next dev -H 0.0.0.0",
+		"build": "next build",
+		"start": "next start -p 3000",
+		"lint": "next lint"
 	},
 	"dependencies": {
 		"axios": "^1.6.0",
 		"bootstrap": "^5.3.2",
 		"framer-motion": "^10.16.5",
+		"next": "^14.2.26",
 		"react": "^18.2.0",
 		"react-bootstrap": "^2.9.0",
 		"react-dom": "^18.2.0",
@@ -21,22 +21,11 @@
 		"react-intersection-observer": "^9.5.3",
 		"react-lazy-load-image-component": "^1.6.0",
 		"react-photo-album": "^2.3.0",
-		"react-router-dom": "^6.16.0",
-		"react-scroll-to-top": "^3.0.0",
-		"react-spring": "^9.7.3",
-		"react-transition-group": "^4.4.5",
 		"react-youtube": "^10.1.0"
 	},
 	"devDependencies": {
-		"@types/react": "^18.2.15",
-		"@types/react-dom": "^18.2.7",
-		"@vitejs/plugin-react": "^4.0.3",
-		"eslint": "^8.45.0",
-		"eslint-plugin-react": "^7.32.2",
-		"eslint-plugin-react-hooks": "^4.6.0",
-		"eslint-plugin-react-refresh": "^0.4.3",
-		"vite": "^4.4.5",
-		"vite-plugin-sitemap": "^0.5.1"
+		"eslint": "^8.57.0",
+		"eslint-config-next": "^14.2.26"
 	},
 	"repository": {
 		"type": "git",

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Row, Col, Form, Alert } from "react-bootstrap";
-import "../styles/ContactForm.css";
 
 const ContactForm = () => {
 	const [formData, setFormData] = useState({

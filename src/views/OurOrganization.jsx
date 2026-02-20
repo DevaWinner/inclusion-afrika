@@ -1,8 +1,10 @@
+"use client";
+
 import React, { useEffect } from "react";
 import Navbar from "../components/NavBar";
 import AboutHero from "../components/AboutHero";
 import ImpactContainer from "../components/ImpactContainer";
-import AboutStory from "../components/ AboutStory";
+import AboutStory from "../components/AboutStory";
 import PartnerSection from "../components/PartnerSection";
 import QuoteComponent from "../components/QuoteComponent";
 import CtaBox from "../components/CtaBox";

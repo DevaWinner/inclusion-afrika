@@ -1,4 +1,3 @@
-import "../styles/Carousel.css";
 
 const HeroCarousel = () => {
 	return (

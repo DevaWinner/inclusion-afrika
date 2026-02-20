@@ -1,5 +1,5 @@
 import { Col, Button, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import DonateButton from "./DonateButton";
 import { motion } from "framer-motion";
@@ -65,7 +65,7 @@ const ProgramCard = ({ title, imgSrc, description }) => {
 						transition={{ duration: 0.8, delay: 0.6 }}
 					>
 						<DonateButton />
-						<Link to="/getinvolved">
+						<Link href="/getinvolved">
 							<Button className="program-button-2">Get Involved</Button>
 						</Link>
 					</motion.div>

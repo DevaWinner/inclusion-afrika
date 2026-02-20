@@ -1,7 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import YouTube from "react-youtube";
-import "../styles/VideoComponent.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import ProgramAreas from "../components/ProgramAreas";
 import Navbar from "../components/NavBar";

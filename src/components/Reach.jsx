@@ -3,7 +3,6 @@ import Marquee from "react-fast-marquee";
 import { Col } from "react-bootstrap";
 import flagsData from "../data/FlagsData.json";
 import { motion } from "framer-motion";
-import "../styles/Reach.css";
 
 const Reach = () => {
 	return (
@@ -16,7 +15,7 @@ const Reach = () => {
 			<h3 className="text">Our Footprint</h3>
 			<Marquee className="countries" pauseOnHover={true} gradient={true }>
 				{flagsData.map((flag, index) => (
-					<Suspense fallback={<div>Loading...</div>}>
+					<Suspense key={index} fallback={<div>Loading...</div>}>
 						<Col key={index} xl={2} md={1} xs={4} className="d-flex flex-row">
 							<div className="country d-flex align-items-center flex-column justify-content-center ">
 								<img

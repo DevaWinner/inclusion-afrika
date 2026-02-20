@@ -1,10 +1,11 @@
+"use client";
+
 import React, { useEffect } from "react";
 import Navbar from "../components/NavBar";
 import ProfileSection from "../components/ProfileSection";
 import boardMembersData from "../data/boardMembersData.json";
 import foundersData from "../data/foundersData.json";
 import techTeamData from "../data/techTeamData.json";
-import "../styles/OurTeam.css";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
