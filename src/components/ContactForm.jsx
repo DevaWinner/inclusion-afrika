@@ -178,9 +178,7 @@ const ContactForm = () => {
 								<li>
 									<i className="fa-solid fa-envelope"></i>
 									<p>
-										<a href="mailto:info@inclusionafrika.org">
-											info@inclusionafrika.org
-										</a>
+										<a href="mailto: drupper@gmail.com">drupper@gmail.com</a>
 									</p>
 								</li>
 							</ul>

@@ -13,6 +13,10 @@ const nextConfig = {
 				protocol: "https",
 				hostname: "thelordshands.org",
 			},
+			{
+				protocol: "https",
+				hostname: "media.licdn.com",
+			},
 		],
 	},
 };

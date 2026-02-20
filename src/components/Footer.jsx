@@ -18,8 +18,7 @@ export default function Footer() {
 						</Link>
 						<p>
 							We empower young adults in Africa with access to capital,
-							mentorship, and practical opportunities that create
-							self-reliance.
+							mentorship, and practical opportunities that create self-reliance.
 						</p>
 					</div>
 
@@ -40,19 +39,29 @@ export default function Footer() {
 							<li>+1 (814) 619-5491</li>
 							<li>+233 24 716 8781</li>
 							<li>
-								<a href="mailto:info@inclusionafrika.org">
-									info@inclusionafrika.org
-								</a>
+								<a href="mailto: drupper@gmail.com">drupper@gmail.com</a>
 							</li>
 						</ul>
 						<div className="footer-social">
-							<a href="https://facebook.com/inclusionafrika" target="_blank" rel="noreferrer">
+							<a
+								href="https://facebook.com/inclusionafrika"
+								target="_blank"
+								rel="noreferrer"
+							>
 								Facebook
 							</a>
-							<a href="https://x.com/inclusionafrika" target="_blank" rel="noreferrer">
+							<a
+								href="https://x.com/inclusionafrika"
+								target="_blank"
+								rel="noreferrer"
+							>
 								X
 							</a>
-							<a href="https://linkedin.com/company/inclusionafrika" target="_blank" rel="noreferrer">
+							<a
+								href="https://linkedin.com/company/inclusionafrika"
+								target="_blank"
+								rel="noreferrer"
+							>
 								LinkedIn
 							</a>
 						</div>

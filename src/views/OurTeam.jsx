@@ -35,6 +35,18 @@ function shortenBio(bio) {
 	return `${bio.slice(0, 220).trim()}...`;
 }
 
+function toExternalUrl(url) {
+	if (!url) {
+		return null;
+	}
+
+	if (/^https?:\/\//i.test(url)) {
+		return url;
+	}
+
+	return `https://${url}`;
+}
+
 export default function OurTeam() {
 	return (
 		<div className="page">
@@ -60,33 +72,56 @@ export default function OurTeam() {
 						<h2>{group.description}</h2>
 					</div>
 					<div className="profile-grid">
-						{group.profiles.map((profile) => (
-							<article className="profile-card" key={profile.name}>
-								<div className="profile-card__media">
-									<Image
-										src={profile.image}
-										alt={profile.name}
-										fill
-										sizes="(max-width: 900px) 100vw, 25vw"
-									/>
-								</div>
-								<div className="profile-card__body">
-									<p className="profile-role">{profile.intro}</p>
-									<h3>{profile.name}</h3>
-									<p>{shortenBio(profile.bio)}</p>
-									{profile.linkedin ? (
-										<a
-											href={profile.linkedin}
-											target="_blank"
-											rel="noreferrer"
-											className="text-link"
-										>
-											View LinkedIn
-										</a>
-									) : null}
-								</div>
-							</article>
-						))}
+						{group.profiles.map((profile) => {
+							const isLinkedInCdnImage = profile.image.includes(
+								"media.licdn.com",
+							);
+							const linkedinUrl = toExternalUrl(profile.linkedin);
+							const portfolioUrl = toExternalUrl(profile.portfolio);
+
+							return (
+								<article className="profile-card" key={profile.name}>
+									<div className="profile-card__media">
+										<Image
+											src={profile.image}
+											alt={profile.name}
+											fill
+											sizes="(max-width: 900px) 100vw, 25vw"
+											unoptimized={isLinkedInCdnImage}
+										/>
+									</div>
+									<div className="profile-card__body">
+										<p className="profile-role">{profile.intro}</p>
+										<h3>{profile.name}</h3>
+										<p>{shortenBio(profile.bio)}</p>
+										{(linkedinUrl || portfolioUrl) && (
+											<div className="profile-links">
+												{linkedinUrl ? (
+													<a
+														href={linkedinUrl}
+														target="_blank"
+														rel="noreferrer"
+														className="text-link"
+													>
+														View LinkedIn
+													</a>
+												) : null}
+												{portfolioUrl ? (
+													<a
+														href={portfolioUrl}
+														target="_blank"
+														rel="noreferrer"
+														className="text-link"
+													>
+														View Portfolio
+													</a>
+												) : null}
+											</div>
+										)}
+									</div>
+								</article>
+							);
+						})}
 					</div>
 				</section>
 			))}

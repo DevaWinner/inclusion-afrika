@@ -8,16 +8,17 @@
 	},
 	{
 		"name": "Aniekan Winner Anietie",
-		"intro": "Front-End Developer, Nigeria",
-		"image": "https://inclusionafrika.imgix.net/winner.jpg",
+		"intro": "Software Engineer, Nigeria",
+		"image": "https://media.licdn.com/dms/image/v2/D4D03AQE2RIgVRmeIKQ/profile-displayphoto-crop_800_800/B4DZmwoWppJAAI-/0/1759605000526?e=1773273600&v=beta&t=_QUi-yzMps-pI_P6IlEQaxv0wYsi_DaTwZJ4Btr_HjE",
 		"bio": "Aniekan Winner is a Front-End Developer with a passion for building user-friendly web applications. He is a seasoned developer with a demonstrated history of working in the information technology and services industry. \n\nAniekan is skilled in HTML, CSS, JavaScript, React, and Node.js. He is a strong engineering professional. \n\nAniekan is a firm believer in the power of technology to transform lives. He is committed to leveraging his expertise to create opportunities across Africa.",
-		"linkedin": "https://www.linkedin.com/in/winnera/"
+		"linkedin": "https://www.linkedin.com/in/winnera/",
+    "portfolio":"www.aniekanwinner.dev"
 	},
 	{
-		"name": "Pamela Ibitamuno ",
-		"intro": "Legal Adviser, Nigeria",
-		"image": "https://inclusionafrika.imgix.net/pamela.JPG",
-		"bio": "Pamela Victor is a distinguished Legal Technologist renowned for her profound knowledge in technology law. A seasoned Lawyer and Cybersecurity researcher, Pamela actively works to bridge the divide between technology and the legal realm. \n\nWith a focus on addressing issues related to Cybercrime, Crypto-theft, Data breaches, and Forensic Investigations, Pamela is committed to leveraging her legal acumen and cybersecurity expertise to deliver effective solutions for individuals and organizations. \n\nPamela's keen interest in Blockchain Technology underscores her dedication to staying at the forefront of technological advancements. Having collaborated with various Tech Startups, she brings a goal-oriented and unwavering commitment to achieving success in her endeavors. \n\nIn the dynamic intersection of law and technology, Pamela Victor emerges as a proactive force, determined to make a significant impact in the ever-evolving digital landscape.",
-		"linkedin": "https://www.linkedin.com/in/pamela-victor-ibitamuno-6a3b6a171/"
+		"name": "Brian K. Githehu ",
+		"intro": "Digital Bookkeeping, Kenya",
+		"image": "https://media.licdn.com/dms/image/v2/C4D03AQHyvm_I_lhauA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1621382738859?e=1773273600&v=beta&t=eXlrZ6YlowTIcaCLNFd0nZvmGUmERW20Kz7xpLC2C4k",
+		"bio": "Brian K. Githehu (founder of BKG Consulting) and his team help automate small business processes. He is the developer of iBookkeeping, a digital tool for African business owners. Brian is a seasoned entrepreneur with a demonstrated history of working in the information technology and services industry. \n\nBrian is skilled in Entrepreneurship, Business Development, Start-ups, and Small Business. He is a strong business professional. \n\nBrian is a firm believer in the power of technology to transform lives. He is committed to leveraging his expertise to create opportunities across Africa.",
+		"linkedin": "https://www.linkedin.com/in/brian-k-githehu-702584123/"
 	}
 ]

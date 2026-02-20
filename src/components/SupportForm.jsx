@@ -41,12 +41,14 @@ export default function SupportForm() {
 			}
 
 			setStatus("success");
-			setStatusText("Thanks. We received your message and will reach out soon.");
+			setStatusText(
+				"Thanks. We received your message and will reach out soon.",
+			);
 			setFormData(initialState);
 		} catch (error) {
 			setStatus("error");
 			setStatusText(
-				"Unable to submit right now. Please email info@inclusionafrika.org instead.",
+				"Unable to submit right now. Please email  drupper@gmail.com instead.",
 			);
 		}
 	};
@@ -116,7 +118,11 @@ export default function SupportForm() {
 			</label>
 
 			<div className="support-form__actions">
-				<button type="submit" className="btn btn--primary" disabled={status === "loading"}>
+				<button
+					type="submit"
+					className="btn btn--primary"
+					disabled={status === "loading"}
+				>
 					{status === "loading" ? "Sending..." : "Send Message"}
 				</button>
 				{status !== "idle" && (

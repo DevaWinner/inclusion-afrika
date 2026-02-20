@@ -15,14 +15,14 @@ const supportOptions = [
 		title: "Mentor",
 		copy: "Offer career, entrepreneurship, or technical guidance to participants and local operators.",
 		action: "Become a Mentor",
-		href: "mailto:info@inclusionafrika.org?subject=Mentorship%20Interest",
+		href: "mailto: drupper@gmail.com?subject=Mentorship%20Interest",
 		external: true,
 	},
 	{
 		title: "Partner",
 		copy: "Collaborate as a foundation, enterprise, or community organization to scale region-specific programs.",
 		action: "Discuss a Partnership",
-		href: "mailto:info@inclusionafrika.org?subject=Partnership%20Interest",
+		href: "mailto: drupper@gmail.com?subject=Partnership%20Interest",
 		external: true,
 	},
 	{
@@ -50,7 +50,7 @@ const faqs = [
 		answer:
 			"No. Inclusion Afrika currently supports participants and partnerships across multiple African countries in a growing regional network.",
 	},
-	];
+];
 
 export default function GetInvolved() {
 	return (
@@ -81,7 +81,12 @@ export default function GetInvolved() {
 							<h3>{option.title}</h3>
 							<p>{option.copy}</p>
 							{option.external ? (
-								<a href={option.href} className="text-link" target="_blank" rel="noreferrer">
+								<a
+									href={option.href}
+									className="text-link"
+									target="_blank"
+									rel="noreferrer"
+								>
 									{option.action}
 								</a>
 							) : (
@@ -109,16 +114,20 @@ export default function GetInvolved() {
 				</div>
 			</section>
 
-			<section id="support-form" className="section section--split section--support">
+			<section
+				id="support-form"
+				className="section section--split section--support"
+			>
 				<div className="split-copy">
 					<p className="eyebrow">Connect With Us</p>
 					<h2>Tell us how you want to support Inclusion Afrika.</h2>
 					<p>
-						Share your goals and our team will respond with a practical next step.
+						Share your goals and our team will respond with a practical next
+						step.
 					</p>
 					<p>
 						You can also email us directly at
-						<a href="mailto:info@inclusionafrika.org"> info@inclusionafrika.org</a>.
+						<a href="mailto: drupper@gmail.com"> drupper@gmail.com</a>.
 					</p>
 				</div>
 				<div className="split-panel">
