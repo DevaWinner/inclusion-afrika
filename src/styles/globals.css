@@ -730,6 +730,13 @@ img {
 	box-shadow: var(--shadow-soft);
 }
 
+.partner-tile img {
+	width: min(100%, 150px);
+	height: 46px;
+	object-fit: contain;
+	object-position: center;
+}
+
 .section--support .split-panel {
 	background: linear-gradient(150deg, rgba(255, 255, 255, 0.95), rgba(241, 245, 255, 0.95));
 	border: 1px solid var(--border-soft);
@@ -1058,7 +1065,7 @@ img {
 
 .profile-card {
 	display: grid;
-	grid-template-rows: 240px 1fr;
+	grid-template-rows: auto 1fr;
 	border-radius: var(--radius-md);
 	overflow: hidden;
 	background: var(--light-color);
@@ -1068,10 +1075,14 @@ img {
 
 .profile-card__media {
 	position: relative;
+	width: 100%;
+	height: clamp(210px, 24vw, 270px);
+	background: #eef2f9;
 }
 
 .profile-card__media img {
 	object-fit: cover;
+	object-position: center top;
 }
 
 .profile-card__body {
@@ -1602,13 +1613,16 @@ img {
 	.card-grid--three,
 	.card-grid--four,
 	.profile-grid,
-	.partners-grid,
 	.mission-vision-grid,
 	.gift-grid,
 	.donor-grid,
 	.program-sell-grid,
 	.program-funding-grid {
 		grid-template-columns: 1fr;
+	}
+
+	.partners-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
 	.split-media,
