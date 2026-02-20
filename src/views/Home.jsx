@@ -30,6 +30,12 @@ const executionSteps = [
 	},
 ];
 
+const programRouteByTitle = {
+	"Micro Loans": "/initiative/micro-loans",
+	"Educational Growth": "/initiative/educational-growth",
+	"Mentorship and Support": "/initiative/mentorship-support",
+};
+
 export default function Home() {
 	return (
 		<div className="page">
@@ -91,22 +97,32 @@ export default function Home() {
 					<h2>Programs designed for measurable, human-centered outcomes.</h2>
 				</div>
 				<div className="card-grid card-grid--three">
-					{programData.map((program) => (
-						<article key={program.title} className="impact-card">
-							<div className="impact-card__media">
-								<Image
-									src={program.imgSrc}
-									alt={program.title}
-									fill
-									sizes="(max-width: 900px) 100vw, 33vw"
-								/>
-							</div>
-							<div className="impact-card__body">
-								<h3>{program.title}</h3>
-								<p>{program.description}</p>
-							</div>
-						</article>
-					))}
+					{programData.map((program) => {
+						const programRoute =
+							programRouteByTitle[program.title] ?? "/initiative";
+
+						return (
+							<article key={program.title} className="impact-card">
+								<div className="impact-card__media">
+									<Image
+										src={program.imgSrc}
+										alt={program.title}
+										fill
+										sizes="(max-width: 900px) 100vw, 33vw"
+									/>
+								</div>
+								<div className="impact-card__body">
+									<h3>{program.title}</h3>
+									<p>{program.description}</p>
+									<div className="impact-card__actions">
+										<Link href={programRoute} className="text-link">
+											View Program Page
+										</Link>
+									</div>
+								</div>
+							</article>
+						);
+					})}
 				</div>
 			</section>
 
