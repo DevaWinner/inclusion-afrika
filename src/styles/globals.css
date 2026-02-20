@@ -759,6 +759,96 @@ img {
 	color: var(--ink-soft);
 }
 
+.mission-vision-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.purpose-card {
+	padding: 1.2rem;
+	border-radius: var(--radius-md);
+	border: 1px solid var(--border-soft);
+	background: linear-gradient(152deg, #ffffff, #f7f9ff);
+	box-shadow: var(--shadow-soft);
+	display: grid;
+	gap: 0.6rem;
+}
+
+.purpose-card h3 {
+	font-size: 1.3rem;
+}
+
+.purpose-card p {
+	font-size: 0.96rem;
+	color: var(--ink-soft);
+}
+
+.compassion-panel {
+	grid-template-columns: 0.9fr 1.1fr;
+}
+
+.compassion-panel__media {
+	position: relative;
+	min-height: 380px;
+	border-radius: var(--radius-lg);
+	overflow: hidden;
+	box-shadow: var(--shadow-soft);
+}
+
+.compassion-panel__media img {
+	object-fit: cover;
+}
+
+.compassion-panel__story {
+	padding: clamp(1.3rem, 2.4vw, 1.9rem);
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--border-soft);
+	background: #ffffff;
+	box-shadow: var(--shadow-soft);
+	display: grid;
+	gap: 0.85rem;
+}
+
+.compassion-panel__story h2 {
+	font-size: clamp(1.55rem, 2.45vw, 2.25rem);
+}
+
+.compassion-panel__story p {
+	color: var(--ink-soft);
+}
+
+.gift-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.gift-card {
+	padding: 1.05rem;
+	border-radius: 0.95rem;
+	border: 1px solid rgba(0, 153, 51, 0.24);
+	background: linear-gradient(160deg, rgba(0, 153, 51, 0.08), rgba(255, 255, 255, 0.92));
+	box-shadow: var(--shadow-soft);
+	display: grid;
+	gap: 0.55rem;
+}
+
+.gift-card h3 {
+	font-size: 1.16rem;
+}
+
+.gift-card p {
+	color: #3e4a67;
+	font-size: 0.95rem;
+}
+
+.donor-grid {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1rem;
+}
+
 .timeline-grid {
 	display: grid;
 	grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -839,6 +929,30 @@ img {
 	border-radius: 0.85rem;
 	background: rgba(255, 255, 255, 0.08);
 	font-size: 0.92rem;
+}
+
+.org-cta-panel {
+	padding: clamp(1.3rem, 2.5vw, 2rem);
+	border-radius: var(--radius-lg);
+	background: linear-gradient(145deg, rgba(26, 34, 56, 0.96), rgba(31, 48, 85, 0.94));
+	color: rgba(255, 255, 255, 0.92);
+	box-shadow: var(--shadow-strong);
+	display: grid;
+	gap: 0.75rem;
+}
+
+.org-cta-panel .eyebrow {
+	color: var(--secondary-color);
+}
+
+.org-cta-panel h2 {
+	font-size: clamp(1.65rem, 2.6vw, 2.4rem);
+	color: var(--light-color);
+}
+
+.org-cta-panel p {
+	color: rgba(255, 255, 255, 0.84);
+	max-width: 60ch;
 }
 
 .section--quote {
@@ -1182,6 +1296,10 @@ img {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
+	.gift-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
 	.section--split,
 	.governance-panel,
 	.program-card-modern,
@@ -1190,6 +1308,7 @@ img {
 	}
 
 	.split-media,
+	.compassion-panel__media,
 	.program-card-modern__media {
 		min-height: 300px;
 	}
@@ -1274,11 +1393,15 @@ img {
 	.card-grid--three,
 	.card-grid--four,
 	.profile-grid,
-	.partners-grid {
+	.partners-grid,
+	.mission-vision-grid,
+	.gift-grid,
+	.donor-grid {
 		grid-template-columns: 1fr;
 	}
 
 	.split-media,
+	.compassion-panel__media,
 	.program-card-modern__media,
 	.photo-grid__item,
 	.photo-grid__item:nth-child(3n) {
