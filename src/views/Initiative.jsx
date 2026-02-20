@@ -3,7 +3,7 @@ import Link from "next/link";
 import DonateButton from "../components/DonateButton";
 import PageHero from "../components/PageHero";
 import photos from "../data/photos.json";
-import programData from "../data/programData.json";
+import { programDetails } from "../data/programDetails";
 
 const deliveryModel = [
 	{
@@ -24,19 +24,34 @@ const deliveryModel = [
 	},
 ];
 
+const donorValue = [
+	{
+		title: "Targeted Giving",
+		copy: "Donors can support a specific pathway based on the type of impact they care most about.",
+	},
+	{
+		title: "Integrated Outcomes",
+		copy: "The three programs reinforce each other, improving participant stability and growth over time.",
+	},
+	{
+		title: "Practical Accountability",
+		copy: "Each initiative uses a clear delivery model with local follow-up and measurable progress markers.",
+	},
+];
+
 export default function Initiative() {
 	return (
 		<div className="page">
 			<PageHero
 				eyebrow="Program Initiatives"
-				title="Integrated interventions that move young adults from potential to progress."
-				description="Our initiatives combine finance, education, and mentorship so participants can build stable livelihoods and long-term capacity."
+				title="Three high-impact programs designed for donors who want measurable change."
+				description="Inclusion Afrika combines funding, education, and mentorship so young adults can move from financial pressure to sustainable progress."
 				image="https://inclusionafrika.imgix.net/photo/2.jpg"
 				actions={
 					<>
-						<DonateButton label="Fuel an Initiative" />
+						<DonateButton label="Support a Program" />
 						<Link href="/getinvolved" className="btn btn--light">
-							Partner With Us
+							Discuss Donor Partnership
 						</Link>
 					</>
 				}
@@ -44,24 +59,73 @@ export default function Initiative() {
 
 			<section className="section">
 				<div className="section-heading">
-					<p className="eyebrow">Current Program Areas</p>
-					<h2>Three connected pathways for durable economic and social outcomes.</h2>
+					<p className="eyebrow">Why These Programs</p>
+					<h2>
+						Our initiative portfolio is built to reduce risk and expand long-term
+						opportunity.
+					</h2>
+					<p>
+						Micro-loans remove financial barriers, educational growth builds market
+						relevant skills, and mentorship protects momentum. Together, these
+						pathways help participants move from short-term survival into durable
+						self-reliance.
+					</p>
 				</div>
-				<div className="program-grid">
-					{programData.map((program) => (
-						<article key={program.title} className="program-card-modern">
-							<div className="program-card-modern__media">
+			</section>
+
+			<section className="section">
+				<div className="section-heading">
+					<p className="eyebrow">Fund by Program</p>
+					<h2>Choose the impact lane you want to power.</h2>
+				</div>
+				<div className="program-sell-grid">
+					{programDetails.map((program) => (
+						<article key={program.slug} className="program-sell-card">
+							<div className="program-sell-card__media">
 								<Image
 									src={program.imgSrc}
 									alt={program.title}
 									fill
-									sizes="(max-width: 900px) 100vw, 42vw"
+									sizes="(max-width: 900px) 100vw, 33vw"
 								/>
 							</div>
-							<div className="program-card-modern__content">
+							<div className="program-sell-card__content">
 								<h3>{program.title}</h3>
-								<p>{program.description}</p>
+								<p>{program.cardSummary}</p>
+								<ul>
+									{program.outcomes.map((outcome) => (
+										<li key={outcome}>{outcome}</li>
+									))}
+								</ul>
+								<div className="program-sell-card__actions">
+									<Link href={`/initiative/${program.slug}`} className="text-link">
+										View Full Program Detail
+									</Link>
+									<a
+										href="https://www.zeffy.com/en-US/donation-form/10a7300e-8c6a-4af3-a738-79517cc3b372"
+										target="_blank"
+										rel="noreferrer"
+										className="text-link"
+									>
+										Donate to This Program
+									</a>
+								</div>
 							</div>
+						</article>
+					))}
+				</div>
+			</section>
+
+			<section className="section">
+				<div className="section-heading">
+					<p className="eyebrow">Donor Confidence</p>
+					<h2>Why this initiative set is strong for philanthropic investment.</h2>
+				</div>
+				<div className="card-grid card-grid--three">
+					{donorValue.map((item) => (
+						<article className="info-card" key={item.title}>
+							<h3>{item.title}</h3>
+							<p>{item.copy}</p>
 						</article>
 					))}
 				</div>

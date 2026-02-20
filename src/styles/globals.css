@@ -332,6 +332,10 @@ img {
 	gap: 0.4rem;
 }
 
+.header-nav-item {
+	position: relative;
+}
+
 .header-link {
 	display: inline-flex;
 	align-items: center;
@@ -352,6 +356,64 @@ img {
 .header-link.is-active {
 	background: var(--primary-color);
 	color: var(--light-color);
+}
+
+.header-link--dropdown {
+	border: 0;
+	background: transparent;
+	cursor: pointer;
+	font-family: inherit;
+}
+
+.header-link-caret {
+	font-size: 0.7rem;
+	line-height: 1;
+	margin-left: 0.32rem;
+	transition: transform 160ms ease;
+}
+
+.header-nav-item--dropdown.is-open .header-link-caret {
+	transform: rotate(180deg);
+}
+
+.header-submenu {
+	position: absolute;
+	top: calc(100% + 0.45rem);
+	left: 0;
+	min-width: 220px;
+	padding: 0.45rem;
+	border-radius: 0.8rem;
+	background: rgba(255, 255, 255, 0.96);
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	box-shadow: var(--shadow-soft);
+	display: none;
+	grid-template-columns: 1fr;
+	gap: 0.2rem;
+	z-index: 50;
+}
+
+.header-submenu.is-open {
+	display: grid;
+}
+
+.header-submenu-link {
+	display: block;
+	padding: 0.52rem 0.62rem;
+	font-size: 0.82rem;
+	font-weight: 600;
+	color: #2f3a59;
+	border-radius: 0.58rem;
+	transition: background-color 150ms ease, color 150ms ease;
+}
+
+.header-submenu-link:hover {
+	background: rgba(26, 34, 56, 0.08);
+	color: var(--primary-color);
+}
+
+.header-submenu-link.is-active {
+	background: rgba(26, 34, 56, 0.13);
+	color: var(--primary-color);
 }
 
 .header-actions {
@@ -1058,6 +1120,76 @@ img {
 	gap: 1rem;
 }
 
+.program-sell-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.program-sell-card {
+	border-radius: var(--radius-md);
+	overflow: hidden;
+	background: var(--light-color);
+	border: 1px solid var(--border-soft);
+	box-shadow: var(--shadow-soft);
+	display: grid;
+	grid-template-rows: 220px 1fr;
+}
+
+.program-sell-card__media {
+	position: relative;
+}
+
+.program-sell-card__media img {
+	object-fit: cover;
+}
+
+.program-sell-card__content {
+	padding: 1rem;
+	display: grid;
+	gap: 0.65rem;
+}
+
+.program-sell-card__content h3 {
+	font-size: 1.25rem;
+}
+
+.program-sell-card__content p {
+	color: var(--ink-soft);
+	font-size: 0.94rem;
+}
+
+.program-sell-card__content ul {
+	list-style: none;
+	display: grid;
+	gap: 0.38rem;
+}
+
+.program-sell-card__content li {
+	font-size: 0.86rem;
+	color: #3e4a67;
+	padding-left: 1rem;
+	position: relative;
+}
+
+.program-sell-card__content li::before {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0.43rem;
+	width: 0.42rem;
+	height: 0.42rem;
+	border-radius: 50%;
+	background: var(--button-color);
+}
+
+.program-sell-card__actions {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem 0.8rem;
+	margin-top: 0.15rem;
+}
+
 .program-card-modern {
 	display: grid;
 	grid-template-columns: 0.95fr 1.05fr;
@@ -1090,6 +1222,60 @@ img {
 
 .program-card-modern__content p {
 	color: var(--ink-soft);
+}
+
+.program-funding-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1rem;
+}
+
+.program-funding-card {
+	padding: 1rem;
+	border-radius: 0.95rem;
+	background: var(--light-color);
+	border: 1px solid var(--border-soft);
+	box-shadow: var(--shadow-soft);
+	display: grid;
+	gap: 0.55rem;
+}
+
+.program-funding-card h3 {
+	font-size: 1.1rem;
+}
+
+.program-funding-card p {
+	color: var(--ink-soft);
+	font-size: 0.94rem;
+}
+
+.program-outcome-panel {
+	padding: clamp(1.2rem, 2vw, 1.8rem);
+	border-radius: var(--radius-lg);
+	border: 1px solid var(--border-soft);
+	background: linear-gradient(160deg, rgba(61, 88, 219, 0.08), rgba(255, 255, 255, 0.95));
+	box-shadow: var(--shadow-soft);
+	display: grid;
+	gap: 0.8rem;
+}
+
+.program-outcome-panel h2 {
+	font-size: clamp(1.4rem, 2vw, 1.95rem);
+}
+
+.program-outcome-panel ul {
+	list-style: none;
+	display: grid;
+	gap: 0.45rem;
+}
+
+.program-outcome-panel li {
+	padding: 0.64rem 0.72rem;
+	border-radius: 0.72rem;
+	border: 1px solid rgba(61, 88, 219, 0.2);
+	background: rgba(255, 255, 255, 0.72);
+	font-size: 0.9rem;
+	color: #344064;
 }
 
 .photo-grid {
@@ -1292,7 +1478,9 @@ img {
 	.card-grid--four,
 	.profile-grid,
 	.partners-grid,
-	.photo-grid {
+	.photo-grid,
+	.program-sell-grid,
+	.program-funding-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
@@ -1368,6 +1556,27 @@ img {
 		justify-content: flex-start;
 	}
 
+	.header-link--dropdown {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.header-submenu {
+		position: static;
+		min-width: 0;
+		margin: 0.28rem 0 0.1rem;
+		padding: 0.32rem;
+		border-radius: 0.72rem;
+		background: rgba(26, 34, 56, 0.06);
+		border: 1px solid rgba(26, 34, 56, 0.09);
+		box-shadow: none;
+	}
+
+	.header-submenu.is-open,
+	.header-nav-item--dropdown.is-open .header-submenu {
+		display: grid;
+	}
+
 	.header-actions {
 		justify-content: flex-start;
 	}
@@ -1396,7 +1605,9 @@ img {
 	.partners-grid,
 	.mission-vision-grid,
 	.gift-grid,
-	.donor-grid {
+	.donor-grid,
+	.program-sell-grid,
+	.program-funding-grid {
 		grid-template-columns: 1fr;
 	}
 
