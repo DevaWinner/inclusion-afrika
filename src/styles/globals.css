@@ -205,6 +205,62 @@ img {
 	margin-top: 1.4rem;
 }
 
+.cta-tiles {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.7rem;
+	margin-top: 1.2rem;
+}
+
+.cta-tile {
+	display: grid;
+	gap: 0.2rem;
+	padding: 0.82rem 0.88rem;
+	border-radius: 0.85rem;
+	border: 1px solid var(--border-soft);
+	background: #fff;
+	box-shadow: var(--shadow-soft);
+	transition: transform 180ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.cta-tile:hover {
+	transform: translateY(-2px);
+}
+
+.cta-tile h3 {
+	font-size: 0.96rem;
+	line-height: 1.25;
+}
+
+.cta-tile span {
+	font-size: 0.78rem;
+	color: var(--ink-soft);
+}
+
+.cta-tile__eyebrow {
+	font-size: 0.66rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--title-color);
+}
+
+.cta-tile--donate {
+	border-color: rgba(0, 153, 51, 0.34);
+	background: linear-gradient(165deg, rgba(0, 153, 51, 0.08), rgba(255, 255, 255, 0.92));
+}
+
+.cta-tile--involve {
+	border-color: rgba(61, 88, 219, 0.28);
+	background: linear-gradient(165deg, rgba(61, 88, 219, 0.08), rgba(255, 255, 255, 0.92));
+}
+
+@media (max-width: 900px) {
+	.cta-tiles {
+		grid-template-columns: 1fr;
+	}
+}
+
 .site-header {
 	position: fixed;
 	top: 0;
@@ -1024,6 +1080,16 @@ img {
 }
 
 .footer-logo-link {
+	display: inline-flex;
+	width: fit-content;
+}
+
+.footer-org-name {
+	font-family: var(--font-heading), serif;
+	font-size: clamp(1.5rem, 2.2vw, 2rem);
+	font-weight: 700;
+	letter-spacing: -0.02em;
+	color: var(--light-color);
 	display: inline-flex;
 	width: fit-content;
 }

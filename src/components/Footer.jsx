@@ -1,6 +1,4 @@
-import Image from "next/image";
 import Link from "next/link";
-import partnerLogo from "../data/partnerLogo.json";
 
 const QUICK_LINKS = [
 	{ href: "/organization", label: "Our Organization" },
@@ -15,31 +13,14 @@ export default function Footer() {
 			<div className="footer-shell">
 				<div className="footer-grid">
 					<div className="footer-brand">
-						<Link href="/" className="footer-logo-link">
-							<Image
-								src="https://inclusionafrika.imgix.net/logo.jpg"
-								alt="Inclusion Afrika"
-								width={190}
-								height={64}
-							/>
+						<Link href="/" className="footer-org-name">
+							Inclusion Afrika
 						</Link>
 						<p>
 							We empower young adults in Africa with access to capital,
 							mentorship, and practical opportunities that create
 							self-reliance.
 						</p>
-						<div className="partner-badges">
-							{partnerLogo.map((partner) => (
-								<div key={partner.partnerName} className="partner-badge">
-									<Image
-										src={partner.partnerLogo}
-										alt={`${partner.partnerName} logo`}
-										width={96}
-										height={40}
-									/>
-								</div>
-							))}
-						</div>
 					</div>
 
 					<div className="footer-column">

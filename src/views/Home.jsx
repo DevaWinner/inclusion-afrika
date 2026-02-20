@@ -190,10 +190,21 @@ export default function Home() {
 						Whether you are an individual donor, mentor, or institution, we can
 						design a practical way to collaborate for impact.
 					</p>
-					<div className="inline-actions">
-						<DonateButton label="Donate Today" />
-						<Link href="/getinvolved" className="btn btn--outline">
-							Explore Ways to Help
+					<div className="cta-tiles">
+						<a
+							href="https://www.zeffy.com/en-US/donation-form/10a7300e-8c6a-4af3-a738-79517cc3b372"
+							target="_blank"
+							rel="noreferrer"
+							className="cta-tile cta-tile--donate"
+						>
+							<p className="cta-tile__eyebrow">Direct Support</p>
+							<h3>Fund a Young Founder</h3>
+							<span>Open secure donation form</span>
+						</a>
+						<Link href="/getinvolved" className="cta-tile cta-tile--involve">
+							<p className="cta-tile__eyebrow">Partnership</p>
+							<h3>Volunteer or Mentor</h3>
+							<span>See practical ways to help</span>
 						</Link>
 					</div>
 				</div>
